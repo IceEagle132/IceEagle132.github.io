@@ -41,33 +41,103 @@
   </div>
 
   <div class="container">
-    <!-- Features Section -->
-    <div class="section" id="features">
-      <div class="section-header">
-        <h2><i class="fas fa-star"></i> Features & Capabilities</h2>
-        <p>Powerful tools to streamline your ranch operations</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-users"></i>
+    <!-- Features & Pricing Section -->
+    <div class="section" id="features-pricing">
+      <div class="features-pricing-grid">
+        <!-- Features Block -->
+        <div class="features-block">
+          <div class="block-header">
+            <h2><i class="fas fa-star"></i> Features</h2>
+            <p>Powerful tools for your ranch</p>
           </div>
-          <h3>Herding Queues</h3>
-          <p>Organize and manage livestock herding operations with automated queue systems</p>
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="feature-content">
+                <h3>Herding Queues</h3>
+                <p>Organize livestock herding operations with automated queue systems</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <div class="feature-content">
+                <h3>Herd Logs</h3>
+                <p>Comprehensive logging system to track all herd activities</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-link"></i>
+              </div>
+              <div class="feature-content">
+                <h3>Connection Tracking</h3>
+                <p>Monitor ranch connections for eggs, milk, and resource production</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-book"></i>
+
+        <!-- Pricing Block -->
+        <div class="pricing-block">
+          <div class="block-header">
+            <h2><i class="fas fa-dollar-sign"></i> Pricing</h2>
+            <p>Simple, transparent pricing</p>
           </div>
-          <h3>Herd Logs</h3>
-          <p>Comprehensive logging system to track all herd activities and movements</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-link"></i>
+          <div class="pricing-options">
+            <div class="pricing-card compact">
+              <div class="pricing-header">
+                <h3>Standard Setup</h3>
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">50</span>
+                </div>
+                <p class="price-subtitle">One-time payment</p>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature">
+                  <i class="fas fa-check"></i>
+                  <span>Full setup & hosting</span>
+                </div>
+                <div class="pricing-feature">
+                  <i class="fas fa-check"></i>
+                  <span>Free updates & support</span>
+                </div>
+              </div>
+              <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" class="btn btn-pricing">
+                <i class="fas fa-shopping-cart"></i>
+                Get Started
+              </a>
+            </div>
+            <div class="pricing-card compact pricing-featured">
+              <div class="pricing-badge">Popular</div>
+              <div class="pricing-header">
+                <h3>Custom Solution</h3>
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">80</span>
+                </div>
+                <p class="price-subtitle">One-time payment</p>
+              </div>
+              <div class="pricing-features">
+                <div class="pricing-feature">
+                  <i class="fas fa-check"></i>
+                  <span>Everything in Standard</span>
+                </div>
+                <div class="pricing-feature">
+                  <i class="fas fa-check"></i>
+                  <span>Custom features & branding</span>
+                </div>
+              </div>
+              <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" class="btn btn-pricing btn-featured">
+                <i class="fas fa-crown"></i>
+                Go Custom
+              </a>
+            </div>
           </div>
-          <h3>Connection Tracking</h3>
-          <p>Monitor ranch connections for eggs, milk, and other resource production</p>
         </div>
       </div>
     </div>
@@ -98,81 +168,6 @@
             <i class="fas fa-check-circle"></i>
             <span>Resource tracking</span>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Pricing Section -->
-    <div class="section" id="pricing">
-      <div class="section-header">
-        <h2><i class="fas fa-dollar-sign"></i> Simple, Transparent Pricing</h2>
-        <p>One-time payment, lifetime value</p>
-      </div>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-header">
-            <h3>Standard Setup</h3>
-            <div class="price">
-              <span class="currency">$</span>
-              <span class="amount">50</span>
-            </div>
-            <p class="price-subtitle">One-time payment</p>
-          </div>
-          <div class="pricing-features">
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>Full bot setup & configuration</span>
-            </div>
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>Lifetime hosting included</span>
-            </div>
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>Free bug fixes & updates</span>
-            </div>
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>24/7 support</span>
-            </div>
-          </div>
-          <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" class="btn btn-pricing">
-            <i class="fas fa-shopping-cart"></i>
-            Get Started
-          </a>
-        </div>
-        <div class="pricing-card pricing-featured">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-header">
-            <h3>Custom Solution</h3>
-            <div class="price">
-              <span class="currency">$</span>
-              <span class="amount">80</span>
-            </div>
-            <p class="price-subtitle">One-time payment</p>
-          </div>
-          <div class="pricing-features">
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>Everything in Standard</span>
-            </div>
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>Custom features & branding</span>
-            </div>
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>Tailored to your needs</span>
-            </div>
-            <div class="pricing-feature">
-              <i class="fas fa-check"></i>
-              <span>Priority support</span>
-            </div>
-          </div>
-          <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" class="btn btn-pricing btn-featured">
-            <i class="fas fa-crown"></i>
-            Go Custom
-          </a>
         </div>
       </div>
     </div>

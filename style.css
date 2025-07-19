@@ -210,7 +210,180 @@ html {
   margin: 0 auto;
 }
 
-/* Features Grid */
+/* Features & Pricing Side-by-Side Layout */
+.features-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.features-block,
+.pricing-block {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.features-block::before,
+.pricing-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.features-block:hover::before,
+.pricing-block:hover::before {
+  transform: scaleX(1);
+}
+
+.features-block:hover,
+.pricing-block:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.block-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.block-header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.block-header h2 i {
+  color: var(--accent-color);
+}
+
+.block-header p {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* Features List Styles */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(5px);
+}
+
+.feature-item .feature-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-primary);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.feature-content h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.feature-content p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Pricing Options Styles */
+.pricing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pricing-card.compact {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.pricing-card.compact:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card.compact .pricing-header h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-card.compact .price {
+  margin-bottom: 0.25rem;
+}
+
+.pricing-card.compact .currency {
+  font-size: 1.2rem;
+}
+
+.pricing-card.compact .amount {
+  font-size: 2rem;
+}
+
+.pricing-card.compact .pricing-features {
+  margin-bottom: 1.5rem;
+}
+
+.pricing-card.compact .pricing-feature {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.pricing-card.compact .btn-pricing {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Legacy Features Grid - Keep for other sections if needed */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -251,7 +424,7 @@ html {
   border-color: var(--primary-color);
 }
 
-.feature-icon {
+.feature-card .feature-icon {
   width: 60px;
   height: 60px;
   background: var(--gradient-primary);
@@ -634,6 +807,16 @@ html {
     align-items: center;
   }
   
+  .features-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .features-block,
+  .pricing-block {
+    padding: 2rem;
+  }
+  
   .demo-container {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -689,8 +872,17 @@ html {
     padding: 1.5rem;
   }
   
+  .features-block,
+  .pricing-block {
+    padding: 1.5rem;
+  }
+  
   .pricing-card {
     padding: 2rem;
+  }
+  
+  .pricing-card.compact {
+    padding: 1.25rem;
   }
   
   .cta-section {
