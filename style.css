@@ -74,3 +74,32 @@ ul li::before {
 .btn:hover {
   background-color: gold;
 }
+
+
+#pricing {
+  margin-top: 4rem;
+  text-align: left;
+}
+
+.price-tier {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  border-left: 4px solid goldenrod;
+}
+
+.price-tier h3 {
+  margin-top: 0;
+  color: gold;
+}
+
+.price-tier ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.price-tier ul li::before {
+  content: '✔️';
+  margin-right: 0.5rem;
+}
