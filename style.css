@@ -131,6 +131,40 @@ html {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.hero-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.hero-link i {
+  font-size: 1rem;
 }
 
 /* Floating decorations */
@@ -910,6 +944,19 @@ html {
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero-link {
+    padding: 0.75rem 1.5rem;
+    min-width: 180px;
+    justify-content: center;
   }
   
   .features-pricing-grid {
@@ -962,6 +1009,11 @@ html {
     text-align: center;
   }
   
+  .footer-links {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
   .floating-icon {
     display: none;
   }
@@ -974,6 +1026,15 @@ html {
 @media (max-width: 480px) {
   .hero-icon {
     font-size: 3rem;
+  }
+  
+  .hero-links {
+    gap: 0.75rem;
+  }
+  
+  .hero-link {
+    font-size: 0.9rem;
+    padding: 0.625rem 1.25rem;
   }
   
   .btn {
@@ -1030,6 +1091,11 @@ html {
   
   .pricing-card.compact {
     padding: 1.25rem;
+  }
+  
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   
   .cta-section {
