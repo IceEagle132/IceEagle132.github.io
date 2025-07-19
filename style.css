@@ -94,9 +94,35 @@ ul li {
   content: '✔️ ';
 }
 
-#pricing p {
-  font-size: 1.1rem;
-  color: #eaeaea;
-  margin: 0.5rem 0 1.2rem;
+.section {
+  margin-top: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+.section p {
+  text-align: left;
+  color: #ddd;
+  margin: 0.6rem 0;
+  font-size: 1.05rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+.buttons {
   text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.demo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;
+  border-radius: 10px;
 }
