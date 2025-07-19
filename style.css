@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background: url('assets/bg.jpg') center/cover no-repeat fixed;
+  color: #fff;
+  text-shadow: 1px 1px 3px black;
+}
+
+.container {
+  max-width: 850px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 3rem;
+  margin: 5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #000;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+ul li {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  position: relative;
+}
+
+ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: gold;
+}
+
+.demo {
+  display: block;
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 2rem auto;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background: goldenrod;
+  color: black;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: gold;
+}
