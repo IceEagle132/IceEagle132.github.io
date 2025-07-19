@@ -152,22 +152,59 @@
       </div>
       <div class="bot-gallery">
         <div class="gallery-grid">
-          <div class="gallery-item">
+          <div class="gallery-item" onclick="openLightbox('assets/1.png', 'Ranch Manager Bot - Herding Queue Interface')">
             <img src="assets/1.png" alt="Ranch Manager Bot - Herding Queue Interface" class="gallery-image" />
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+              <span>Click to expand</span>
+            </div>
           </div>
-          <div class="gallery-item">
+          <div class="gallery-item" onclick="openLightbox('assets/2.png', 'Ranch Manager Bot - Herd Logs')">
             <img src="assets/2.png" alt="Ranch Manager Bot - Herd Logs" class="gallery-image" />
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+              <span>Click to expand</span>
+            </div>
           </div>
-          <div class="gallery-item">
+          <div class="gallery-item" onclick="openLightbox('assets/3.png', 'Ranch Manager Bot - Ranch Tracking')">
             <img src="assets/3.png" alt="Ranch Manager Bot - Ranch Tracking" class="gallery-image" />
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+              <span>Click to expand</span>
+            </div>
           </div>
-          <div class="gallery-item">
+          <div class="gallery-item" onclick="openLightbox('assets/4.png', 'Ranch Manager Bot - Camp Management')">
             <img src="assets/4.png" alt="Ranch Manager Bot - Camp Management" class="gallery-image" />
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+              <span>Click to expand</span>
+            </div>
           </div>
-          <div class="gallery-item">
+          <div class="gallery-item" onclick="openLightbox('assets/5.png', 'Ranch Manager Bot - Settings & Configuration')">
             <img src="assets/5.png" alt="Ranch Manager Bot - Settings & Configuration" class="gallery-image" />
+            <div class="gallery-overlay">
+              <i class="fas fa-expand"></i>
+              <span>Click to expand</span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <img id="lightbox-image" src="" alt="" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <div class="lightbox-nav">
+        <button class="lightbox-prev" onclick="navigateLightbox(-1)">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next" onclick="navigateLightbox(1)">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -268,6 +305,79 @@
           }
         }, 50);
       });
+    });
+
+    // Lightbox functionality
+    const galleryImages = [
+      { src: 'assets/1.png', alt: 'Ranch Manager Bot - Herding Queue Interface' },
+      { src: 'assets/2.png', alt: 'Ranch Manager Bot - Herd Logs' },
+      { src: 'assets/3.png', alt: 'Ranch Manager Bot - Ranch Tracking' },
+      { src: 'assets/4.png', alt: 'Ranch Manager Bot - Camp Management' },
+      { src: 'assets/5.png', alt: 'Ranch Manager Bot - Settings & Configuration' }
+    ];
+    
+    let currentImageIndex = 0;
+
+    function openLightbox(imageSrc, imageAlt) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      
+      // Find current image index
+      currentImageIndex = galleryImages.findIndex(img => img.src === imageSrc);
+      
+      lightboxImage.src = imageSrc;
+      lightboxImage.alt = imageAlt;
+      lightboxCaption.textContent = imageAlt;
+      
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+
+    function navigateLightbox(direction) {
+      currentImageIndex += direction;
+      
+      // Wrap around
+      if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = 0;
+      } else if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages.length - 1;
+      }
+      
+      const currentImage = galleryImages[currentImageIndex];
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      
+      lightboxImage.src = currentImage.src;
+      lightboxImage.alt = currentImage.alt;
+      lightboxCaption.textContent = currentImage.alt;
+    }
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateLightbox(1);
+      }
+    });
+
+    // Prevent lightbox from closing when clicking on the image
+    document.addEventListener('DOMContentLoaded', function() {
+      const lightboxContent = document.querySelector('.lightbox-content');
+      if (lightboxContent) {
+        lightboxContent.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      }
     });
   </script>
 </body>
