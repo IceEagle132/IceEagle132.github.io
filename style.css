@@ -450,7 +450,66 @@ html {
   line-height: 1.7;
 }
 
-/* Bot Preview Section */
+/* Bot Gallery Section */
+.bot-gallery {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+/* Add a subtle overlay on hover */
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+/* Bot Preview Section - Keep for legacy support */
 .bot-preview-container {
   max-width: 800px;
   margin: 0 auto;
@@ -863,6 +922,15 @@ html {
     padding: 2rem;
   }
   
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gallery-item {
+    border-radius: 0.75rem;
+  }
+  
   .bot-image-wrapper {
     border-radius: 1rem;
   }
@@ -929,6 +997,15 @@ html {
   .features-block,
   .pricing-block {
     padding: 1.5rem;
+  }
+  
+  .gallery-grid {
+    gap: 0.75rem;
+    margin: 0 -0.5rem;
+  }
+  
+  .gallery-item {
+    border-radius: 0.5rem;
   }
   
   .bot-preview-container {
