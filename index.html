@@ -3,46 +3,214 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ranch Manager Bot</title>
+  <title>Ranch Manager Bot - Automate Your Ranch Management</title>
+  <meta name="description" content="Professional Discord bot for ranch and camp management. Features herding queues, logs, and connection tracking for Syn County.">
   <link href="style.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div class="container">
-    <h1><span style="font-size: 1.5rem;">🐮</span> Ranch / Camp Manager Bot</h1>
-    <p class="intro">
-      Currently only supports <strong>Syn County</strong>! This bot helps you manage your ranch or camp with ease.
-    </p>
-
-    <div class="section">
-      <h2>🌾 Features</h2>
-      <ul>
-        <li>🐄 Herding Queues</li>
-        <li>📘 Herd Logs</li>
-        <li>📜 Ranch Connection Logs (Eggs, Milk)</li>
-      </ul>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-icon">
+        <i class="fas fa-cow"></i>
+      </div>
+      <h1 class="hero-title">Ranch Manager Bot</h1>
+      <p class="hero-subtitle">Professional Discord automation for ranch and camp management</p>
+      <div class="hero-badge">
+        <i class="fas fa-map-marker-alt"></i>
+        Currently supporting <strong>Syn County</strong>
+      </div>
+      <div class="hero-buttons">
+        <a href="https://discord.com/oauth2/authorize?client_id=1390728744540311693&permissions=8&scope=bot%20applications.commands" class="btn btn-primary">
+          <i class="fas fa-plus"></i>
+          Add to Discord
+        </a>
+        <a href="#features" class="btn btn-secondary">
+          <i class="fas fa-info-circle"></i>
+          Learn More
+        </a>
+      </div>
     </div>
-
-    <div class="section">
-      <h2>🎞️ Bot Demo</h2>
-      <figure style="margin: 0; text-align: center;">
-        <img src="assets/demo.gif" alt="Bot demo" class="demo" />
-        <figcaption style="color: #aaa; font-size: 0.9rem;">Example in action</figcaption>
-      </figure>
-    </div>
-
-    <div class="section" id="pricing">
-      <h2>💰 Pricing</h2>
-      <p><strong>$50 one-time payment</strong> — Includes full setup, lifetime hosting, free bug fixes, and updates.</p>
-      <p><strong>$80 one-time payment</strong> — For a fully custom bot tailored to your features and branding.</p>
-    </div>
-
-    <div class="buttons">
-      <a href="https://discord.com/oauth2/authorize?client_id=1390728744540311693&permissions=8&scope=bot%20applications.commands" class="btn">➕ Invite the Bot</a>
-      <a href="https://github.com/IceEagle132/ranch-manager-bot" class="btn">📂 View Code</a>
-      <a href="https://discord.gg/syncounty" class="btn">🌐 Join Syn County</a>
-      <a class="btn" href="https://buy.stripe.com/YOUR_PAYMENT_LINK">💰 Buy Now</a>
+    <div class="hero-decoration">
+      <div class="floating-icon"><i class="fas fa-tractor"></i></div>
+      <div class="floating-icon"><i class="fas fa-egg"></i></div>
+      <div class="floating-icon"><i class="fas fa-seedling"></i></div>
     </div>
   </div>
+
+  <div class="container">
+    <!-- Features Section -->
+    <div class="section" id="features">
+      <div class="section-header">
+        <h2><i class="fas fa-star"></i> Features & Capabilities</h2>
+        <p>Powerful tools to streamline your ranch operations</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Herding Queues</h3>
+          <p>Organize and manage livestock herding operations with automated queue systems</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>Herd Logs</h3>
+          <p>Comprehensive logging system to track all herd activities and movements</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-link"></i>
+          </div>
+          <h3>Connection Tracking</h3>
+          <p>Monitor ranch connections for eggs, milk, and other resource production</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Section -->
+    <div class="section" id="demo">
+      <div class="section-header">
+        <h2><i class="fas fa-play-circle"></i> See It In Action</h2>
+        <p>Watch how the bot streamlines ranch management</p>
+      </div>
+      <div class="demo-container">
+        <div class="demo-wrapper">
+          <img src="assets/demo.gif" alt="Ranch Manager Bot Demo" class="demo-image" />
+          <div class="demo-overlay">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="demo-features">
+          <div class="demo-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Real-time queue management</span>
+          </div>
+          <div class="demo-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Automated logging system</span>
+          </div>
+          <div class="demo-feature">
+            <i class="fas fa-check-circle"></i>
+            <span>Resource tracking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div class="section" id="pricing">
+      <div class="section-header">
+        <h2><i class="fas fa-dollar-sign"></i> Simple, Transparent Pricing</h2>
+        <p>One-time payment, lifetime value</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Standard Setup</h3>
+            <div class="price">
+              <span class="currency">$</span>
+              <span class="amount">50</span>
+            </div>
+            <p class="price-subtitle">One-time payment</p>
+          </div>
+          <div class="pricing-features">
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>Full bot setup & configuration</span>
+            </div>
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>Lifetime hosting included</span>
+            </div>
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>Free bug fixes & updates</span>
+            </div>
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>24/7 support</span>
+            </div>
+          </div>
+          <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" class="btn btn-pricing">
+            <i class="fas fa-shopping-cart"></i>
+            Get Started
+          </a>
+        </div>
+        <div class="pricing-card pricing-featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <h3>Custom Solution</h3>
+            <div class="price">
+              <span class="currency">$</span>
+              <span class="amount">80</span>
+            </div>
+            <p class="price-subtitle">One-time payment</p>
+          </div>
+          <div class="pricing-features">
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>Everything in Standard</span>
+            </div>
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>Custom features & branding</span>
+            </div>
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>Tailored to your needs</span>
+            </div>
+            <div class="pricing-feature">
+              <i class="fas fa-check"></i>
+              <span>Priority support</span>
+            </div>
+          </div>
+          <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" class="btn btn-pricing btn-featured">
+            <i class="fas fa-crown"></i>
+            Go Custom
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="section cta-section">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Ranch Management?</h2>
+        <p>Join hundreds of ranch owners who've streamlined their operations</p>
+        <div class="cta-buttons">
+          <a href="https://discord.com/oauth2/authorize?client_id=1390728744540311693&permissions=8&scope=bot%20applications.commands" class="btn btn-primary btn-large">
+            <i class="fas fa-rocket"></i>
+            Start Now - It's Free to Try
+          </a>
+          <a href="https://github.com/IceEagle132/ranch-manager-bot" class="btn btn-secondary">
+            <i class="fab fa-github"></i>
+            View Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://discord.gg/syncounty" class="footer-link">
+          <i class="fab fa-discord"></i>
+          Join Syn County
+        </a>
+        <a href="https://github.com/IceEagle132/ranch-manager-bot" class="footer-link">
+          <i class="fab fa-github"></i>
+          GitHub
+        </a>
+      </div>
+      <p class="footer-text">© 2025 Ranch Manager Bot. Built for the Syn County community.</p>
+    </div>
+  </footer>
 </body>
 </html>
