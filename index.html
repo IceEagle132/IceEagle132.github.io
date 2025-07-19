@@ -11,6 +11,17 @@
 </head>
 <body>
   <!-- Hero Section -->
+  <!-- Background Music -->
+  <div class="music-player">
+    <audio id="backgroundMusic" loop>
+      <source src="assets/background-music.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button id="musicToggle" class="music-toggle" title="Toggle Background Music">
+      <i class="fas fa-volume-up"></i>
+    </button>
+  </div>
+
   <div class="hero">
     <div class="hero-content">
       <div class="hero-icon">
@@ -179,5 +190,60 @@
       <p class="footer-text">© 2025 Ranch Manager Bot. Built for the Syn County community.</p>
     </div>
   </footer>
+
+  <script>
+    // Background Music Controller
+    document.addEventListener('DOMContentLoaded', function() {
+      const audio = document.getElementById('backgroundMusic');
+      const musicToggle = document.getElementById('musicToggle');
+      const icon = musicToggle.querySelector('i');
+      
+      // Set initial volume
+      audio.volume = 0.3;
+      
+      // Check if user has a preference stored
+      const musicEnabled = localStorage.getItem('backgroundMusicEnabled');
+      if (musicEnabled === 'true') {
+        audio.play().catch(e => console.log('Auto-play prevented by browser'));
+      }
+      
+      musicToggle.addEventListener('click', function() {
+        if (audio.paused) {
+          audio.play();
+          icon.className = 'fas fa-volume-up';
+          musicToggle.classList.add('playing');
+          localStorage.setItem('backgroundMusicEnabled', 'true');
+        } else {
+          audio.pause();
+          icon.className = 'fas fa-volume-mute';
+          musicToggle.classList.remove('playing');
+          localStorage.setItem('backgroundMusicEnabled', 'false');
+        }
+      });
+      
+      // Update button state when audio plays/pauses
+      audio.addEventListener('play', function() {
+        icon.className = 'fas fa-volume-up';
+        musicToggle.classList.add('playing');
+      });
+      
+      audio.addEventListener('pause', function() {
+        icon.className = 'fas fa-volume-mute';
+        musicToggle.classList.remove('playing');
+      });
+      
+      // Fade in effect when starting
+      audio.addEventListener('play', function() {
+        audio.volume = 0;
+        const fadeIn = setInterval(function() {
+          if (audio.volume < 0.3) {
+            audio.volume += 0.02;
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 50);
+      });
+    });
+  </script>
 </body>
 </html>
