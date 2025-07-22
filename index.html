@@ -75,6 +75,12 @@
         <span class="floating-word">Bot</span>
       </div>
     </div>
+    <div class="scroll-indicator">
+      <div class="scroll-text">Scroll Down</div>
+      <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
   </div>
 
   <div class="container">
@@ -320,6 +326,37 @@
             clearInterval(fadeIn);
           }
         }, 50);
+      });
+    });
+
+    // Scroll Indicator Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const scrollIndicator = document.querySelector('.scroll-indicator');
+      const featuresSection = document.getElementById('features-pricing');
+      
+      if (scrollIndicator && featuresSection) {
+        scrollIndicator.addEventListener('click', function() {
+          featuresSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        });
+      }
+
+      // Hide scroll indicator when user scrolls down
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+          scrollIndicator.style.opacity = '0';
+          scrollIndicator.style.visibility = 'hidden';
+        } else {
+          scrollIndicator.style.opacity = '1';
+          scrollIndicator.style.visibility = 'visible';
+        }
+        
+        lastScrollTop = scrollTop;
       });
     });
 
