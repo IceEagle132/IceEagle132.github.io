@@ -75,7 +75,7 @@
         <span class="floating-word">Bot</span>
       </div>
     </div>
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" data-target="features-pricing">
       <div class="scroll-text">Scroll Down</div>
       <div class="scroll-arrow">
         <i class="fas fa-chevron-down"></i>
@@ -216,6 +216,29 @@
         </div>
       </div>
     </div>
+    <div class="scroll-indicator" data-target="bot-preview">
+      <div class="scroll-text">See Bot Gallery</div>
+      <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" data-target="footer">
+      <div class="scroll-text">Contact & Links</div>
+      <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-chevron-up"></i>
   </div>
 
   <!-- Lightbox Modal -->
@@ -331,32 +354,70 @@
 
     // Scroll Indicator Functionality
     document.addEventListener('DOMContentLoaded', function() {
-      const scrollIndicator = document.querySelector('.scroll-indicator');
-      const featuresSection = document.getElementById('features-pricing');
+      const scrollIndicators = document.querySelectorAll('.scroll-indicator');
+      const scrollToTopBtn = document.getElementById('scrollToTop');
       
-      if (scrollIndicator && featuresSection) {
-        scrollIndicator.addEventListener('click', function() {
-          featuresSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+      // Handle all scroll indicators
+      scrollIndicators.forEach(indicator => {
+        indicator.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-target');
+          let targetElement;
+          
+          if (targetId === 'footer') {
+            targetElement = document.querySelector('.footer');
+          } else {
+            targetElement = document.getElementById(targetId);
+          }
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Scroll to top functionality
+      if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
           });
         });
       }
 
-      // Hide scroll indicator when user scrolls down
-      let lastScrollTop = 0;
+      // Show/hide scroll indicators and scroll-to-top button based on scroll position
       window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
         
-        if (scrollTop > 100) {
-          scrollIndicator.style.opacity = '0';
-          scrollIndicator.style.visibility = 'hidden';
+        // Show scroll-to-top button when scrolled down
+        if (scrollTop > 300) {
+          scrollToTopBtn.classList.add('visible');
         } else {
-          scrollIndicator.style.opacity = '1';
-          scrollIndicator.style.visibility = 'visible';
+          scrollToTopBtn.classList.remove('visible');
         }
         
-        lastScrollTop = scrollTop;
+        // Hide/show scroll indicators based on their position
+        scrollIndicators.forEach(indicator => {
+          const section = indicator.closest('.section, .hero');
+          if (section) {
+            const sectionRect = section.getBoundingClientRect();
+            const sectionBottom = sectionRect.bottom;
+            
+            // Hide indicator when section is mostly out of view or at bottom of page
+            if (sectionBottom < windowHeight * 0.3 || scrollTop + windowHeight >= documentHeight - 100) {
+              indicator.style.opacity = '0';
+              indicator.style.visibility = 'hidden';
+            } else {
+              indicator.style.opacity = '1';
+              indicator.style.visibility = 'visible';
+            }
+          }
+        });
       });
     });
 
