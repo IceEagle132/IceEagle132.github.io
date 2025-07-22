@@ -632,6 +632,9 @@ html {
   cursor: pointer;
   z-index: 10;
   animation: scrollBounce 2s ease-in-out infinite;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 /* Different positioning for different sections */

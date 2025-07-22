@@ -169,6 +169,12 @@
         </div>
       </div>
     </div>
+    <div class="scroll-indicator" data-target="bot-preview">
+      <div class="scroll-text">See Bot Gallery</div>
+      <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
 
     <!-- Bot Preview Section -->
     <div class="section" id="bot-preview">
@@ -213,18 +219,6 @@
               <span>Click to expand</span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="scroll-indicator" data-target="bot-preview">
-      <div class="scroll-text">See Bot Gallery</div>
-      <div class="scroll-arrow">
-        <i class="fas fa-chevron-down"></i>
-      </div>
-    </div>
-  </div>
-
-            </div>
         </div>
       </div>
     </div>
@@ -401,24 +395,36 @@
           scrollToTopBtn.classList.remove('visible');
         }
         
-        // Hide/show scroll indicators based on their position
+        // Hide/show scroll indicators based on their section's visibility
         scrollIndicators.forEach(indicator => {
           const section = indicator.closest('.section, .hero');
           if (section) {
             const sectionRect = section.getBoundingClientRect();
+            const sectionTop = sectionRect.top;
             const sectionBottom = sectionRect.bottom;
+            const sectionHeight = sectionRect.height;
             
-            // Hide indicator when section is mostly out of view or at bottom of page
-            if (sectionBottom < windowHeight * 0.3 || scrollTop + windowHeight >= documentHeight - 100) {
-              indicator.style.opacity = '0';
-              indicator.style.visibility = 'hidden';
-            } else {
+            // Show indicator only if:
+            // 1. Section is currently visible (at least 30% of section is in viewport)
+            // 2. We're not at the very bottom of the page
+            // 3. Section is not completely scrolled past
+            const sectionVisiblePercent = Math.max(0, Math.min(windowHeight, sectionBottom) - Math.max(0, sectionTop)) / sectionHeight;
+            const isAtBottom = scrollTop + windowHeight >= documentHeight - 50;
+            const isCurrentSection = sectionVisiblePercent > 0.3 && sectionBottom > windowHeight * 0.5;
+            
+            if (isCurrentSection && !isAtBottom) {
               indicator.style.opacity = '1';
               indicator.style.visibility = 'visible';
+            } else {
+              indicator.style.opacity = '0';
+              indicator.style.visibility = 'hidden';
             }
           }
         });
       });
+      
+      // Initial check on page load
+      window.dispatchEvent(new Event('scroll'));
     });
 
     // Lightbox functionality
