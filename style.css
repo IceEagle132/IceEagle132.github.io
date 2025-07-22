@@ -634,6 +634,19 @@ html {
   animation: scrollBounce 2s ease-in-out infinite;
 }
 
+/* Different positioning for different sections */
+.hero .scroll-indicator {
+  bottom: 2rem;
+}
+
+.section .scroll-indicator {
+  position: relative;
+  bottom: auto;
+  margin: 2rem auto 0;
+  transform: none;
+  left: auto;
+}
+
 .scroll-text {
   font-size: 0.85rem;
   font-weight: 500;
@@ -753,6 +766,7 @@ html {
 /* Section Styles */
 .section {
   margin-bottom: 6rem;
+  position: relative;
 }
 
 .section-header {
@@ -2255,6 +2269,11 @@ html {
   }
   
   .scroll-indicator {
+    bottom: 1rem;
+    margin: 1.5rem auto 0;
+  }
+  
+  .hero .scroll-indicator {
     bottom: 1rem;
   }
   
