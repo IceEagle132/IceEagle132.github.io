@@ -395,32 +395,50 @@
           scrollToTopBtn.classList.remove('visible');
         }
         
-        // Hide/show scroll indicators based on their section's visibility
+        // First, hide all scroll indicators
         scrollIndicators.forEach(indicator => {
-          const section = indicator.closest('.section, .hero');
-          if (section) {
-            const sectionRect = section.getBoundingClientRect();
-            const sectionTop = sectionRect.top;
-            const sectionBottom = sectionRect.bottom;
-            const sectionHeight = sectionRect.height;
-            
-            // Show indicator only if:
-            // 1. Section is currently visible (at least 30% of section is in viewport)
-            // 2. We're not at the very bottom of the page
-            // 3. Section is not completely scrolled past
-            const sectionVisiblePercent = Math.max(0, Math.min(windowHeight, sectionBottom) - Math.max(0, sectionTop)) / sectionHeight;
-            const isAtBottom = scrollTop + windowHeight >= documentHeight - 50;
-            const isCurrentSection = sectionVisiblePercent > 0.3 && sectionBottom > windowHeight * 0.5;
-            
-            if (isCurrentSection && !isAtBottom) {
-              indicator.style.opacity = '1';
-              indicator.style.visibility = 'visible';
-            } else {
-              indicator.style.opacity = '0';
-              indicator.style.visibility = 'hidden';
+          indicator.style.opacity = '0';
+          indicator.style.visibility = 'hidden';
+        });
+        
+        // Then show only the appropriate one based on current section
+        const heroSection = document.querySelector('.hero');
+        const featuresPricingSection = document.getElementById('features-pricing');
+        const botPreviewSection = document.getElementById('bot-preview');
+        
+        const heroRect = heroSection.getBoundingClientRect();
+        const featuresRect = featuresPricingSection.getBoundingClientRect();
+        const botPreviewRect = botPreviewSection.getBoundingClientRect();
+        
+        const isAtBottom = scrollTop + windowHeight >= documentHeight - 100;
+        
+        // Don't show any indicators if we're at the bottom
+        if (!isAtBottom) {
+          // Show hero scroll indicator if hero section is visible and not mostly scrolled past
+          if (heroRect.bottom > windowHeight * 0.3 && heroRect.top < windowHeight * 0.7) {
+            const heroIndicator = heroSection.querySelector('.scroll-indicator');
+            if (heroIndicator) {
+              heroIndicator.style.opacity = '1';
+              heroIndicator.style.visibility = 'visible';
             }
           }
-        });
+          // Show features-pricing scroll indicator if that section is visible
+          else if (featuresRect.top < windowHeight * 0.7 && featuresRect.bottom > windowHeight * 0.3) {
+            const featuresIndicator = document.querySelector('[data-target="bot-preview"]');
+            if (featuresIndicator) {
+              featuresIndicator.style.opacity = '1';
+              featuresIndicator.style.visibility = 'visible';
+            }
+          }
+          // Show bot-preview scroll indicator if that section is visible
+          else if (botPreviewRect.top < windowHeight * 0.7 && botPreviewRect.bottom > windowHeight * 0.3) {
+            const botIndicator = document.querySelector('[data-target="footer"]');
+            if (botIndicator) {
+              botIndicator.style.opacity = '1';
+              botIndicator.style.visibility = 'visible';
+            }
+          }
+        }
       });
       
       // Initial check on page load
