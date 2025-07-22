@@ -414,8 +414,8 @@
         
         // Don't show any indicators if we're at the bottom
         if (!isAtBottom) {
-          // Show hero scroll indicator if hero section is visible and not mostly scrolled past
-          if (heroRect.bottom > windowHeight * 0.3 && heroRect.top < windowHeight * 0.7) {
+          // Show hero scroll indicator if hero section is visible
+          if (heroRect.bottom > 50 && heroRect.top < windowHeight - 50) {
             const heroIndicator = heroSection.querySelector('.scroll-indicator');
             if (heroIndicator) {
               heroIndicator.style.opacity = '1';
@@ -423,7 +423,7 @@
             }
           }
           // Show features-pricing scroll indicator if that section is visible
-          else if (featuresRect.top < windowHeight * 0.7 && featuresRect.bottom > windowHeight * 0.3) {
+          else if (featuresRect.top < windowHeight - 50 && featuresRect.bottom > 50) {
             const featuresIndicator = document.querySelector('[data-target="bot-preview"]');
             if (featuresIndicator) {
               featuresIndicator.style.opacity = '1';
@@ -431,7 +431,7 @@
             }
           }
           // Show bot-preview scroll indicator if that section is visible
-          else if (botPreviewRect.top < windowHeight * 0.7 && botPreviewRect.bottom > windowHeight * 0.3) {
+          else if (botPreviewRect.top < windowHeight - 50 && botPreviewRect.bottom > 50) {
             const botIndicator = document.querySelector('[data-target="footer"]');
             if (botIndicator) {
               botIndicator.style.opacity = '1';
